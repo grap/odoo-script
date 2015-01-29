@@ -2,6 +2,7 @@ import erppeek
 
 COMPTE_CLIENT = 389
 
+
 def init_openerp(url, login, password, database):
     try:
         openerp = erppeek.Client(url)
@@ -17,6 +18,7 @@ openerp, uid = init_openerp(
     'resto_2015_01_07_a',
 )
 
+
 def fix_payment_move():
     rc_lst = openerp.ResCompany.browse([
         ('fiscal_company', '=', 3),
@@ -25,6 +27,7 @@ def fix_payment_move():
         ('company_id', '=', 3),
         ('code', 'in', ('CB', 'CH', 'CS', 'TR')),
     ])
+    total_res = {}
     for rc in rc_lst:
 #    if True:
 #        rc = rc_lst[8]
@@ -47,7 +50,7 @@ def fix_payment_move():
                 else:
                     print "warning : %s" % am.name
 
-            if am_ids: 
+            if am_ids:
                 am_lst = openerp.AccountMove.browse(am_ids)
                 for am in am_lst:
                     print "**************"
@@ -58,11 +61,12 @@ def fix_payment_move():
                     abs_lst = openerp.AccountBankStatement.browse([
                         ('name', '=', am.ref),
                     ])
-                    assert len(abs_lst) == 1, "Account Bank Statement Not Found %s" % (am.ref)
+                    assert len(abs_lst) == 1,\
+                        "Account Bank Statement Not Found %s" % (am.ref)
                     abs = abs_lst[0]
                     keys = {}
                     for absl in abs.line_ids:
-                        if absl.ref == False: # TODO
+                        if absl.ref is False:  # TODO
                             assert False, "Merde la ref"
                         key = (
                             absl.date,
@@ -134,12 +138,20 @@ def fix_payment_move():
                             })
                         # Validate new Account Move
                         print move_id
-                        openerp.execute('account.move', 'button_validate', ([move_id.id]))
+                        openerp.execute(
+                            'account.move', 'button_validate', ([move_id.id]))
                         i += 1
                     # Drop old Account Move
-                    openerp.AccountUnexportEbp.unexport(False, ({'active_ids': [am.id]}))
+                    openerp.AccountUnexportEbp.unexport(
+                        False, ({'active_ids': [am.id]}))
+                    total_res[am.id] = am.name
                     openerp.execute('account.move', 'button_cancel', ([am.id]))
                     openerp.AccountMove.unlink([am.id])
+    print "*********************************"
+    print "Sumary"
+    print "*********************************"
+    for item in total_res:
+        print item
 
 
 fix_payment_move()
