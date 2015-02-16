@@ -15,7 +15,7 @@ openerp, uid = init_openerp(
     'http://localhost:8069',
     'admin',
     'test',
-    'resto_2015_01_07_a',
+    'resto_2015_01_16_c',
 )
 
 
@@ -29,10 +29,9 @@ def fix_payment_move():
     ])
     total_res = {}
     for rc in rc_lst:
-#    if True:
-#        rc = rc_lst[8]
+        #    if True:
+        #        rc = rc_lst[8]
         print "****** Company : %s ****************" % rc.name
-        am_ids = []
         for aj in aj_lst:
             print "****** Journal : %s " % aj.name
             # For each journal
@@ -43,6 +42,10 @@ def fix_payment_move():
                 ('date', '<=', '31/12/2014'),
                 ('name', 'not ilike', '%/%/%/%'),
             ])
+            my_print = [x.id for x in am_lst]
+            my_print.sort()
+            print my_print
+            am_ids = []
             for am in am_lst:
                 if am.ref:
                     if am.ref == am.name[0:3] + '20' + am.name[3:]:
@@ -53,11 +56,13 @@ def fix_payment_move():
             if am_ids:
                 am_lst = openerp.AccountMove.browse(am_ids)
                 for am in am_lst:
-                    print "**************"
-                    print am
-                    print am.name
-                    print am.ref
-                    print "Fixing %s (Ref: %s)" % (am.name, am.ref)
+                    try:
+                        print "**************"
+                        print "Fixing %s (Ref: %s) #%s" % (
+                            am.name, am.ref, am.id)
+                        print "**************"
+                    except:
+                        import pdb; pdb.set_trace()
                     abs_lst = openerp.AccountBankStatement.browse([
                         ('name', '=', am.ref),
                     ])
@@ -150,7 +155,7 @@ def fix_payment_move():
     print "*********************************"
     print "Sumary"
     print "*********************************"
-    for item in total_res:
+    for item in total_res.iteritems():
         print item
 
 
