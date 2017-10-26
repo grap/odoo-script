@@ -1,0 +1,93 @@
+#! /usr/bin/env python
+# -*- encoding: utf-8 -*-
+
+# Global Settings
+COMPANY_ID = 43                         # res.company 'Current Company'
+
+# Product Global Settings
+PRODUCT_FIRST_LINE = 2                  # N° de ligne du premier produit
+
+DEFAULT_POS_CATEG_ID = 835              # pos.category 'Others'
+TAX_GROUPS = {
+    '0.0': False,
+    '2.1': False,
+    '5.5': 274,
+    '10.0': False,
+    '20.0': 275,
+}
+DEFAULT_TAX_GROUP = '5.5'
+
+# default product category (select one of the two following lines)
+DEFAULT_PRODUCT_CATEGORY = 223          # "Revente / divers / divers"
+# DEFAULT_PRODUCT_CATEGORY = 227        # "transformations / divers / divers"
+
+# Product Information
+COLUMN_PRODUCT_NAME = 'E'
+COLUMN_PRODUCT_UOM_ID = 'F'
+COLUMN_PRODUCT_CATEG_ID = 'G'
+COLUMN_PRODUCT_POS_CATEG_ID = 'C'
+
+# Product Supplier information
+COLUMN_PRODUCT_SUPPLIER_NAME = 'H'
+COLUMN_PRODUCT_SUPPLIER_PRODUCT_CODE = 'J'
+COLUMN_PRODUCT_SUPPLIER_PRODUCT_NAME = 'K'
+COLUMN_PRODUCT_SUPPLIER_GROSS_PRICE = 'L'
+COLUMN_PRODUCT_SUPPLIER_DISCOUNT = 'M'
+COLUMN_PRODUCT_SUPPLIER_INVOICE_QTY = 'N'
+COLUMN_PRODUCT_SUPPLIER_PACKAGE_QTY = 'O'
+
+# Product Sale Information
+COLUMN_PRODUCT_MAKER = 'I'
+COLUMN_PRODUCT_EAN_13 = 'P'
+COLUMN_PRODUCT_VOLUME = 'U'
+COLUMN_PRODUCT_NET_WEIGHT = 'V'
+COLUMN_PRODUCT_COUNTRY_ID = False
+COLUMN_PRODUCT_TAX_GROUP_ID = 'W'
+COLUMN_PRODUCT_STANDARD_PRICE = False
+COLUMN_PRODUCT_SALE_PRICE = 'AE'
+COLUMN_PRODUCT_SALE_ALTERNATIVE = 'AD'
+
+# Product Food Information
+COLUMN_PRODUCT_LABEL_1 = 'R'
+COLUMN_PRODUCT_LABEL_2 = 'S'
+COLUMN_PRODUCT_LABEL_3 = 'T'
+
+# Partner Global Settings
+PARTNER_FIRST_LINE = 3
+
+# partner Information
+COLUMN_PARTNER_NAME = 'A'
+COLUMN_PARTNER_EMAIL = 'B'
+COLUMN_PARTNER_PHONE = 'C'
+COLUMN_PARTNER_FAX = 'D'
+COLUMN_PARTNER_MOBILE = 'F'
+COLUMN_PARTNER_WEBSITE = 'G'
+COLUMN_PARTNER_VAT = False
+COLUMN_PARTNER_STREET = 'M'
+COLUMN_PARTNER_ZIP = 'N'
+COLUMN_PARTNER_CITY = 'O'
+COLUMN_PARTNER_COUNTRY_ID = False
+COLUMN_PARTNER_COMMENT = False
+COLUMN_PARTNER_IS_CUSTOMER = False
+COLUMN_PARTNER_IS_SUPPLIER = 'A'
+COLUMN_PARTNER_IS_INDIVIDUAL = False
+
+# Lead Global Settings
+LEAD_FIRST_LINE = False
+DEFAULT_CRM_CASE_STAGE = False      # Set name here
+# DEFAULT_LEAD_TYPE = 'lead'
+DEFAULT_LEAD_TYPE = 'opportunity'
+
+# Lead Information
+COLUMN_LEAD_NAME = False
+COLUMN_LEAD_STAGE = False
+COLUMN_LEAD_EMAIL = False
+COLUMN_LEAD_PHONE = False
+COLUMN_LEAD_MOBILE = False
+COLUMN_LEAD_STREET = False
+COLUMN_LEAD_COUNTRY_ID = False
+COLUMN_LEAD_ZIP = False
+COLUMN_LEAD_CITY = False
+COLUMN_LEAD_DESCRIPTION = False
+
+CRM_CASE_STAGES = {}

@@ -5,6 +5,11 @@ __pycache__/
 # C extensions
 *.so
 
+cfg_secret_configuration.py
+*.csv
+*.csv#
+*.ods
+
 # Distribution / packaging
 .Python
 env/

@@ -1,0 +1,98 @@
+#! /usr/bin/env python
+# -*- encoding: utf-8 -*-
+
+# Global Settings
+COMPANY_ID = 45                 # res.company 'Teddy Beer'
+
+# Product Global Settings
+PRODUCT_FIRST_LINE = False              # N° de ligne du premier produit
+DEFAULT_POS_CATEG_ID = False              # pos.category 'Others'
+TAX_GROUPS = {
+    '0.0': False,
+    '2.1': False,
+    '5.5': False,
+    '10.0': False,
+    '20.0': False,
+}
+DEFAULT_TAX_GROUP = False
+
+# DEFAULT_PRODUCT_CATEGORY = 223      # "revente / divers / divers"
+DEFAULT_PRODUCT_CATEGORY = 227      # "transformations / divers / divers"
+
+# Product Information
+COLUMN_PRODUCT_NAME = False
+COLUMN_PRODUCT_UOM_ID = False
+COLUMN_PRODUCT_CATEG_ID = False
+COLUMN_PRODUCT_POS_CATEG_ID = False
+
+# Product Supplier information
+COLUMN_PRODUCT_SUPPLIER_NAME = False
+COLUMN_PRODUCT_SUPPLIER_PRODUCT_CODE = False
+COLUMN_PRODUCT_SUPPLIER_PRODUCT_NAME = False
+COLUMN_PRODUCT_SUPPLIER_GROSS_PRICE = False
+COLUMN_PRODUCT_SUPPLIER_DISCOUNT = False
+COLUMN_PRODUCT_SUPPLIER_INVOICE_QTY = False
+COLUMN_PRODUCT_SUPPLIER_PACKAGE_QTY = False
+
+# Product Sale Information
+COLUMN_PRODUCT_MAKER = False
+COLUMN_PRODUCT_EAN_13 = False
+COLUMN_PRODUCT_VOLUME = False
+COLUMN_PRODUCT_NET_WEIGHT = False
+COLUMN_PRODUCT_COUNTRY_ID = False
+COLUMN_PRODUCT_TAX_GROUP_ID = False
+COLUMN_PRODUCT_STANDARD_PRICE = False
+COLUMN_PRODUCT_SALE_PRICE = False
+COLUMN_PRODUCT_SALE_ALTERNATIVE = False
+
+# Product Food Information
+COLUMN_PRODUCT_LABEL_1 = False
+COLUMN_PRODUCT_LABEL_2 = False
+COLUMN_PRODUCT_LABEL_3 = False
+
+# Partner Global Settings
+PARTNER_FIRST_LINE = 2
+
+# partner Information
+COLUMN_PARTNER_NAME = 'B'
+COLUMN_PARTNER_EMAIL = 'G'
+COLUMN_PARTNER_PHONE = 'F'
+COLUMN_PARTNER_FAX = False
+COLUMN_PARTNER_MOBILE = False
+COLUMN_PARTNER_WEBSITE = False
+COLUMN_PARTNER_VAT = False
+COLUMN_PARTNER_STREET = 'C'
+COLUMN_PARTNER_ZIP = 'D'
+COLUMN_PARTNER_CITY = 'E'
+COLUMN_PARTNER_COUNTRY_ID = False
+COLUMN_PARTNER_COMMENT = 'H'
+COLUMN_PARTNER_IS_CUSTOMER = 'A'
+COLUMN_PARTNER_IS_SUPPLIER = False
+COLUMN_PARTNER_IS_INDIVIDUAL = False
+
+# Lead Global Settings
+LEAD_FIRST_LINE = 2
+DEFAULT_CRM_CASE_STAGE = 'jamais contacte'
+# DEFAULT_LEAD_TYPE = 'lead'
+DEFAULT_LEAD_TYPE = 'opportunity'
+
+
+# Lead Information
+COLUMN_LEAD_NAME = 'B'
+COLUMN_LEAD_STAGE = 'A'
+COLUMN_LEAD_EMAIL = 'G'
+COLUMN_LEAD_PHONE = 'F'
+COLUMN_LEAD_MOBILE = False
+COLUMN_LEAD_STREET = 'C'
+COLUMN_LEAD_ZIP = 'D'
+COLUMN_LEAD_CITY = 'E'
+COLUMN_LEAD_COUNTRY_ID = False
+COLUMN_LEAD_DESCRIPTION = 'H'
+
+CRM_CASE_STAGES = {
+    'jamais contacte': 39,
+    '1er contact': 40,
+    'contact en cours': 41,
+    'contact fait': 44,
+    'ne pas recontacter/mort': 43,
+}
